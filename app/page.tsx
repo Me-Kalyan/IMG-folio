@@ -56,7 +56,7 @@ export default function Home() {
                 </DraggableSticker>
 
                 <div className="w-full flex justify-end">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400">
                         Portfolio 2025 ®
                     </span>
                 </div>
@@ -138,7 +138,7 @@ export default function Home() {
                         <h2 className="text-sm font-bold uppercase tracking-widest border border-black dark:border-white bg-white dark:bg-black inline-block px-3 py-1 rounded-full mb-4">
                             Expertise
                         </h2>
-                        <p className="text-gray-500 max-w-xs leading-relaxed">
+                        <p className="text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
                             Comprehensive design solutions from initial concept to final deployment.
                         </p>
                     </div>
