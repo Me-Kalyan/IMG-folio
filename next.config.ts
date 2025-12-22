@@ -6,13 +6,13 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
-      },
-      {
-        protocol: 'https',
-        hostname: '*.sanity.io', // Allows all Sanity subdomains including api.sanity.io
+        pathname: '/images/**',
       },
     ],
+    // Fallback: allow unoptimized images if remote pattern fails
+    unoptimized: false,
   },
 };
 
 export default nextConfig;
+
