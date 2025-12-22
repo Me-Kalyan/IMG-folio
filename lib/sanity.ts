@@ -6,7 +6,7 @@ export const client = createClient({
     projectId: 'vutb1f31',
     dataset: 'production',
     apiVersion: '2024-01-01',
-    useCdn: false, // Set to false so updates appear instantly while developing
+    useCdn: true, // Use CDN for faster image delivery in production
 })
 
 const builder = imageUrlBuilder(client)

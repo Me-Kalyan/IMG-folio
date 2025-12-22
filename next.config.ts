@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
       },
+      {
+        protocol: 'https',
+        hostname: '*.sanity.io', // Allows all Sanity subdomains including api.sanity.io
+      },
     ],
   },
 };
