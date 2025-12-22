@@ -2,7 +2,6 @@
 
 import { client, urlFor } from '@/lib/sanity';
 import Link from 'next/link';
-import Image from 'next/image';
 import ParallaxImage from '@/components/ParallaxImage';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
@@ -30,19 +29,18 @@ interface Project {
 export default function WorkIndexPage() {
     const [projects, setProjects] = useState<Project[]>([]);
 
-    useEffect(() => {
-        getProjectsData().then(setProjects);
-    }, []);
-
     const { scrollY } = useScroll();
-    const [windowHeight, setWindowHeight] = useState(1000);
+    const [windowHeight, setWindowHeight] = useState<number>(1000);
 
     useEffect(() => {
-        getProjectsData().then(setProjects);
-        setWindowHeight(window.innerHeight);
         const handleResize = () => setWindowHeight(window.innerHeight);
+        const timer = setTimeout(handleResize, 0);
+        getProjectsData().then(setProjects);
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     // --- LOGO/TITLE ANIMATION (Unifying Hero and Sticky) ---

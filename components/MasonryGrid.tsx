@@ -10,7 +10,7 @@ interface Project {
     _id: string;
     title: string;
     slug: { current: string };
-    coverImage?: any;
+    coverImage?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 const aspectClasses = ['aspect-[4/5]', 'aspect-square', 'aspect-[16/9]'];

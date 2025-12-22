@@ -26,7 +26,13 @@ export default function TextReveal({ children }: { children: string }) {
     );
 }
 
-const Word = ({ children, range, progress }: any) => {
+interface WordProps {
+    children: React.ReactNode;
+    range: [number, number];
+    progress: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+}
+
+const Word = ({ children, range, progress }: WordProps) => {
     const opacity = useTransform(progress, range, [0.1, 1]); // 0.1 is gray, 1 is black
     return (
         <span className="relative">

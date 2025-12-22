@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import SmoothScroll from '@/components/SmoothScroll';
 import GrainOverlay from '@/components/GrainOverlay';
 import CustomCursor from '@/components/CustomCursor';
@@ -27,6 +27,7 @@ export default function RootLayout({
         <CustomCursor />
 
         <SmoothScroll>
+          <Header />
           <Transition>
             {children}
           </Transition>

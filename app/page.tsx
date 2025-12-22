@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 // Components
-import Header from '@/components/Header'; // The New Header
 import StatusPopup from '@/components/StatusPopup'; // The New "Open for Work"
 import ServiceAccordion from '@/components/ServiceAccordion'; // The New Component
 import DraggableSticker from '@/components/DraggableSticker';
@@ -40,10 +39,6 @@ export default function Home() {
 
     return (
         <main className="bg-white min-h-screen text-black selection:bg-black selection:text-white">
-
-            {/* 1. NEW HEADER (Sticky, Glassmorphic) */}
-            <Header />
-
             {/* 2. FLOATING STATUS WIDGET */}
             <StatusPopup />
 
