@@ -27,7 +27,6 @@ export default function RootLayout({
         <CustomCursor />
 
         <SmoothScroll>
-          <Navbar />
           <Transition>
             {children}
           </Transition>
