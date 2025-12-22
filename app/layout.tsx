@@ -7,6 +7,7 @@ import CustomCursor from '@/components/CustomCursor';
 import Preloader from '@/components/Preloader';
 import ProgressBar from '@/components/ProgressBar';
 import Transition from '@/components/Transition';
+import ThemeProvider from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: "IMG'folio",
@@ -20,18 +21,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-white text-black cursor-none">
-        <Preloader />
-        <ProgressBar />
-        <GrainOverlay />
-        <CustomCursor />
+      <body className="antialiased bg-white dark:bg-black text-black dark:text-white cursor-none transition-colors duration-300">
+        <ThemeProvider>
+          <Preloader />
+          <ProgressBar />
+          <GrainOverlay />
+          <CustomCursor />
 
-        <SmoothScroll>
-          <Header />
-          <Transition>
-            {children}
-          </Transition>
-        </SmoothScroll>
+          <SmoothScroll>
+            <Header />
+            <Transition>
+              {children}
+            </Transition>
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

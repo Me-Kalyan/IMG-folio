@@ -43,7 +43,7 @@ export default function Home() {
     }, []);
 
     return (
-        <main className="bg-white min-h-screen text-black selection:bg-black selection:text-white">
+        <main className="bg-white dark:bg-black min-h-screen text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-500">
 
             <StatusPopup />
 
@@ -132,10 +132,10 @@ export default function Home() {
             <VelocityScroll />
 
             {/* 6. SERVICES */}
-            <section className="py-24 px-4 md:px-6 bg-gray-50">
+            <section className="py-24 px-4 md:px-6 bg-gray-50 dark:bg-neutral-900">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
                     <div>
-                        <h2 className="text-sm font-bold uppercase tracking-widest border border-black bg-white inline-block px-3 py-1 rounded-full mb-4">
+                        <h2 className="text-sm font-bold uppercase tracking-widest border border-black dark:border-white bg-white dark:bg-black inline-block px-3 py-1 rounded-full mb-4">
                             Expertise
                         </h2>
                         <p className="text-gray-500 max-w-xs leading-relaxed">
@@ -155,7 +155,7 @@ export default function Home() {
             <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
                 <div className="flex items-center gap-4 mb-12">
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">ARCHIVE</h2>
-                    <div className="h-px bg-black flex-1 mt-2"></div>
+                    <div className="h-px bg-black dark:bg-white flex-1 mt-2"></div>
                 </div>
                 <div className="w-full">
                     {projects.map((project, i) => (
