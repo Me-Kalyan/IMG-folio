@@ -8,15 +8,16 @@ export default function InvertToggle() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        // Only set theme if it's different to avoid redundant updates?
-        // Actually, we need to sync state with localStorage on mount.
-        // The warning is about calling setState synchronously if it triggers updates. 
-        // Here it runs once on mount. 
-        setTheme(savedTheme);
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        const initTheme = () => {
+            setMounted(true);
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        };
+
+        // Defer to next tick to avoid synchronous setState warning in effect
+        const timeout = setTimeout(initTheme, 0);
+        return () => clearTimeout(timeout);
     }, []);
 
     if (!mounted) return null;

@@ -11,6 +11,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
             touchMultiplier: 2,
             infinite: false
         }}>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {children as any}
         </ReactLenis>
     );

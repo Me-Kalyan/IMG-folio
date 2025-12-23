@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { client } from '@/lib/sanity';
 
 // Core Components
 import Header from '@/components/Header';

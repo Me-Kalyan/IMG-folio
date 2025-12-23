@@ -4,13 +4,54 @@ import CustomCursor from '@/components/CustomCursor';
 import Preloader from '@/components/Preloader';
 import Header from '@/components/Header';
 import SmoothScroll from '@/components/SmoothScroll';
-import Transition from '@/components/Transition';
+import PageTransition from '@/components/PageTransition';
 import ProgressBar from '@/components/ProgressBar';
 import GrainOverlay from '@/components/GrainOverlay';
 
 export const metadata: Metadata = {
-  title: "IMG'folio",
-  description: 'Visual Archive 2024-2025',
+  title: {
+    default: "IMG'FOLIO | Visual Archive",
+    template: "%s | IMG'FOLIO"
+  },
+  description: 'Independent design practice focusing on high-end visual storytelling and creative technology. Portfolio of IMG&apos;folio Studio.',
+  keywords: ['Design', 'Photography', 'Swiss Style', 'Minimalism', 'Creative Development', 'Visual Identity'],
+  authors: [{ name: 'IMG&apos;folio Studio' }],
+  creator: 'IMG&apos;folio',
+  metadataBase: new URL('https://imgfolio.studio'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://imgfolio.studio',
+    siteName: "IMG'FOLIO",
+    title: "IMG'FOLIO | Visual Archive",
+    description: 'Independent design practice focusing on high-end visual storytelling and creative technology.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: "IMG'FOLIO",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "IMG'FOLIO | Visual Archive",
+    description: 'Independent design practice focusing on high-end visual storytelling and creative technology.',
+    creator: '@imgfolio',
+    images: ['/og-image.jpg'],
+  },
+  manifest: '/site.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -31,7 +72,7 @@ export default function RootLayout({
           })();
         ` }} />
       </head>
-      <body className="antialiased bg-background text-foreground transition-colors duration-500">
+      <body className="antialiased bg-background text-foreground transition-colors duration-500" suppressHydrationWarning>
         <Preloader />
         <ProgressBar />
         <GrainOverlay />
@@ -39,9 +80,9 @@ export default function RootLayout({
 
         <SmoothScroll>
           <Header />
-          <Transition>
+          <PageTransition>
             {children}
-          </Transition>
+          </PageTransition>
         </SmoothScroll>
       </body>
     </html>

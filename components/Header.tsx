@@ -1,10 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import InvertToggle from './InvertToggle';
 import MagneticLink from './MagneticLink';
+import Logo from './Logo';
 
 export default function Header() {
     const [hidden, setHidden] = useState(false);
@@ -32,11 +33,8 @@ export default function Header() {
         >
             <div className="flex items-center justify-between w-full max-w-[100rem] mx-auto px-6 md:px-12 py-4">
                 {/* LOGO */}
-                <Link href="/" className="group flex items-center gap-2">
-                    <span className="w-4 h-4 bg-foreground rounded-full" />
-                    <h1 className="text-xl font-black tracking-tighter uppercase leading-none">
-                        IMG&apos;folio
-                    </h1>
+                <Link href="/" className="group">
+                    <Logo size={180} />
                 </Link>
 
                 {/* NAV */}
