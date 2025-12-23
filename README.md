@@ -1,6 +1,8 @@
 # IMG'folio — Cinematic Portfolio Concept
 
-![Banner](file:///f:/AI Projects/Project A/public/og-image.png)
+<img width="600" height="140" alt="image" src="https://github.com/user-attachments/assets/782c37e8-38c2-41a8-85fc-f7c3bb84c5ed" />
+
+
 
 A high-end, editorial-style portfolio concept built with **Next.js 16**, **Framer Motion**, and **Sanity CMS**. This project focuses on "Luxury UI" through cinematic transitions, subtle micro-interactions, and a sophisticated white-card-over-black-footer layout.
 
