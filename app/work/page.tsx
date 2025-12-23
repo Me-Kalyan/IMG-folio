@@ -37,12 +37,12 @@ export default function WorkPage() {
     }, []);
 
     return (
-        <main className="bg-white dark:bg-black min-h-screen text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-500">
+        <main className="bg-white min-h-screen text-black selection:bg-black selection:text-white">
 
             <StatusPopup />
 
             {/* 1. HERO SECTION */}
-            <section className="relative pt-40 pb-12 px-4 md:px-6 max-w-7xl mx-auto flex flex-col justify-end min-h-[40vh] border-b border-gray-100 dark:border-white/10">
+            <section className="relative pt-40 pb-12 px-4 md:px-6 max-w-7xl mx-auto flex flex-col justify-end min-h-[40vh] border-b border-gray-100">
                 <div className="flex justify-between items-end">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}

@@ -11,7 +11,7 @@ import DraggableSticker from '@/components/DraggableSticker';
 
 export default function InfoPage() {
     return (
-        <main className="bg-white dark:bg-black min-h-screen text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-500">
+        <main className="bg-white min-h-screen text-black selection:bg-black selection:text-white">
 
             <StatusPopup />
 
@@ -26,7 +26,7 @@ export default function InfoPage() {
                         STUDIO<br />
                         PROFILE.
                     </h1>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 border-t border-black dark:border-white pt-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 border-t border-black pt-12">
                         <div>
                             <h3 className="text-sm font-bold uppercase tracking-widest mb-4">About</h3>
                             <p className="text-2xl md:text-3xl font-medium leading-tight">
@@ -46,10 +46,10 @@ export default function InfoPage() {
             </section>
 
             {/* 2. SERVICES (Expertise) */}
-            <section className="py-24 px-4 md:px-6 bg-gray-50 dark:bg-neutral-900">
+            <section className="py-24 px-4 md:px-6 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
-                        <h2 className="text-sm font-bold uppercase tracking-widest border border-black dark:border-white bg-white dark:bg-black inline-block px-3 py-1 rounded-full">
+                        <h2 className="text-sm font-bold uppercase tracking-widest border border-black bg-white inline-block px-3 py-1 rounded-full">
                             Capabilities
                         </h2>
                     </div>

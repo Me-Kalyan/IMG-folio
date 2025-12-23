@@ -38,13 +38,13 @@ export default function ProjectPage() {
     if (!project) return <div className="min-h-screen bg-white" />;
 
     return (
-        <main className="bg-white dark:bg-black min-h-screen text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-500">
+        <main className="bg-white min-h-screen text-black selection:bg-black selection:text-white">
             <StatusPopup />
 
             {/* 1. HERO HEADER */}
             <section className="pt-40 px-4 md:px-6 max-w-7xl mx-auto">
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-black dark:border-white pb-8">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-black pb-8">
                         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase max-w-4xl leading-[0.9]">
                             {project.title}
                         </h1>

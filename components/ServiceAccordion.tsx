@@ -12,29 +12,29 @@ export default function ServiceAccordion() {
     const [active, setActive] = useState<string | null>(null);
 
     return (
-        <div className="w-full border-t border-black/10">
+        <div className="w-full border-t border-black">
+            {/* Changed border to solid black for high contrast Swiss look */}
             {services.map((s) => (
-                <div key={s.id} className="border-b border-black/10">
+                <div key={s.id} className="border-b border-black">
                     <button
                         onClick={() => setActive(active === s.id ? null : s.id)}
-                        className="w-full py-8 flex items-baseline justify-between hover:bg-gray-50 transition-colors px-2 text-left"
+                        className="w-full py-8 flex items-baseline justify-between hover:bg-neutral-50 transition-colors px-2 group"
                     >
                         <div className="flex items-baseline gap-8 md:gap-16">
-                            <span className="font-mono text-xs text-gray-400">{s.id}</span>
-                            <span className="text-2xl md:text-4xl font-medium tracking-tight">{s.title}</span>
+                            <span className="font-mono text-xs text-black/50 group-hover:text-black transition-colors">{s.id}</span>
+                            <span className="text-3xl md:text-5xl font-medium tracking-tight text-black">{s.title}</span>
                         </div>
-                        <span className="text-2xl font-light">{active === s.id ? '−' : '+'}</span>
+                        <span className="text-3xl font-light text-black">{active === s.id ? '−' : '+'}</span>
                     </button>
-                    <AnimatePresence initial={false}>
+                    <AnimatePresence>
                         {active === s.id && (
                             <motion.div
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                                 className="overflow-hidden"
                             >
-                                <div className="pb-8 pl-14 md:pl-24 max-w-2xl text-gray-600 text-lg leading-relaxed">
+                                <div className="pb-10 pl-14 md:pl-24 max-w-2xl text-black/70 text-lg leading-relaxed">
                                     {s.desc}
                                 </div>
                             </motion.div>

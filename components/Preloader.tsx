@@ -22,13 +22,13 @@ export default function Preloader() {
     <AnimatePresence mode="wait">
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-end bg-black text-white px-4 pb-8 cursor-wait"
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black text-white px-6 cursor-wait"
           exit={{ y: "-100%" }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
-          <div className="flex justify-between w-full max-w-7xl mx-auto items-end font-bold text-[15vw] leading-none tracking-tighter">
-             <h1>IMG'folio</h1>
-             <span className="tabular-nums">{count}%</span>
+          <div className="flex flex-col md:flex-row justify-between w-full max-w-7xl mx-auto items-center md:items-end font-bold text-[12vw] md:text-[8vw] leading-none tracking-tighter">
+            <h1>IMG'folio</h1>
+            <span className="tabular-nums opacity-50">{count}%</span>
           </div>
         </motion.div>
       )}
