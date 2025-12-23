@@ -27,7 +27,7 @@ export default function Preloader() {
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
           <div className="flex flex-col md:flex-row justify-between w-full max-w-7xl mx-auto items-center md:items-end font-bold text-[12vw] md:text-[8vw] leading-none tracking-tighter">
-            <h1>IMG'folio</h1>
+            <h1>IMG&apos;folio</h1>
             <span className="tabular-nums opacity-50">{count}%</span>
           </div>
         </motion.div>

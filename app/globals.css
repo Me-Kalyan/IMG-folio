@@ -1,54 +1,116 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #000000;
-  --color-accent: #333333;
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-accent: var(--accent);
 
-  --font-sans: var(--font-ibm-sans), "Helvetica", ui-sans-serif, system-ui;
-  --font-mono: var(--font-ibm-mono), monospace;
+  --font-sans: "Inter", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
 
+  /* Strict Swiss Typographic Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
   --font-size-6xl: 3.75rem;
-  --font-size-7xl: 4.5rem;
-  --font-size-8xl: 6rem;
-  --font-size-9xl: 8rem;
+  --font-size-7xl: 5rem;
+  --font-size-8xl: 8rem;
+  --font-size-9xl: 12rem;
 
-  --tracking-tight: -0.03em;
-  --tracking-widest: 0.2em;
-}
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-swiss: 0.25em;
 
-/* The Magic Switch */
-.invert-mode {
-  filter: invert(1) hue-rotate(180deg);
-  background: #000;
-  /* Prevents white flashes */
-}
-
-/* Prevent images/videos from being inverted */
-.invert-mode img,
-.invert-mode video {
-  filter: invert(1) hue-rotate(180deg);
+  --leading-none: 0.8;
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
+  --bg: #F8F8F8;
+  --text: #050505;
+  --accent: #E0E0E0;
+  --grid-color: rgba(0, 0, 0, 0.05);
 }
 
+[data-theme='dark'] {
+  --bg: #050505;
+  --text: #F8F8F8;
+  --accent: #1A1A1A;
+  --grid-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Base Styles */
 * {
   border-radius: 0 !important;
   box-shadow: none !important;
+  cursor: none !important;
 }
 
+html,
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow-x: hidden;
 }
 
-/* Custom transitions for Framer Motion if needed */
+/* Swiss Grid Blueprint Overlay (Optional/Debug) */
+.grid-overlay {
+  background-size: 8.33% 100%;
+  background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px);
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+.text-display {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-none);
+  text-transform: uppercase;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--tracking-swiss);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Utility Helpers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom transitions for Framer Motion */
 .page-transition-wrapper {
   width: 100%;
   height: 100%;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--text);
+  color: var(--bg);
 }

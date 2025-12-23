@@ -5,16 +5,23 @@ import Image from 'next/image';
 import { useState, useRef } from 'react';
 import { urlFor } from '@/lib/sanity';
 
+interface SanityImage {
+  _type: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+}
+
 interface ArchiveListItemProps {
   slug: string;
   title: string;
   client?: string;
   year?: string;
-  coverImage?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
-  index: number;
+  coverImage?: SanityImage;
 }
 
-export default function ArchiveListItem({ slug, title, client, year, coverImage, index }: ArchiveListItemProps) {
+export default function ArchiveListItem({ slug, title, client, year, coverImage }: ArchiveListItemProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,11 +32,8 @@ export default function ArchiveListItem({ slug, title, client, year, coverImage,
   };
 
   return (
-    <motion.div
+    <div
       ref={containerRef}
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.05 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
@@ -56,6 +60,6 @@ export default function ArchiveListItem({ slug, title, client, year, coverImage,
           <Image src={urlFor(coverImage).width(400).url()} alt={title} fill className="object-cover" />
         </motion.div>
       )}
-    </motion.div>
+    </div>
   );
 }

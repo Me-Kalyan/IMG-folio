@@ -1,85 +1,98 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 // Components
+import Header from '@/components/Header';
 import StatusPopup from '@/components/StatusPopup';
 import ServiceAccordion from '@/components/ServiceAccordion';
 import ProcessSteps from '@/components/ProcessSteps';
-import ClientLogos from '@/components/ClientLogos';
-import DraggableSticker from '@/components/DraggableSticker';
 
 export default function InfoPage() {
-    return (
-        <main className="bg-white min-h-screen text-black selection:bg-black selection:text-white">
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
+    return (
+        <main className="bg-background min-h-screen text-foreground selection:bg-foreground selection:text-background transition-colors duration-500">
+            <Header />
             <StatusPopup />
 
-            {/* 1. HERO */}
-            <section className="relative pt-40 pb-20 px-4 md:px-6 max-w-7xl mx-auto min-h-[60vh] flex flex-col justify-end">
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <h1 className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-[0.85] mb-12">
-                        STUDIO<br />
-                        PROFILE.
-                    </h1>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 border-t border-black pt-12">
-                        <div>
-                            <h3 className="text-sm font-bold uppercase tracking-widest mb-4">About</h3>
-                            <p className="text-2xl md:text-3xl font-medium leading-tight">
-                                We are a digital design practice crafting brands, websites, and visual systems for culture and commerce.
-                            </p>
-                        </div>
-                        <div className="text-gray-500 leading-relaxed text-lg">
-                            <p className="mb-6">
-                                Founded in 2025 in Hyderabad, IMG&apos;folio operates at the intersection of art direction and creative technology. We believe that good design is honest, functional, and culturally relevant.
-                            </p>
-                            <p>
-                                Our approach is rooted in the Swiss tradition of grid systems and typography, updated for the modern web. We work with clients who value craftsmanship and attention to detail.
-                            </p>
-                        </div>
+            {/* 1. STUDIO PROFILE HEADER */}
+            <section className="relative pt-48 pb-20 px-6 md:px-12 max-w-[100rem] mx-auto border-b border-foreground/10">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+                    <div className="md:col-span-12">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+                            className="text-[12vw] font-black tracking-tighter uppercase leading-[0.75]"
+                        >
+                            Studio<br />
+                            Profile.
+                        </motion.h1>
                     </div>
-                </motion.div>
-            </section>
+                </div>
 
-            {/* 2. SERVICES (Expertise) */}
-            <section className="py-24 px-4 md:px-6 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-12">
-                        <h2 className="text-sm font-bold uppercase tracking-widest border border-black bg-white inline-block px-3 py-1 rounded-full">
-                            Capabilities
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mt-20 pt-12 border-t border-foreground/5">
+                    <div className="md:col-span-1 hidden md:block">
+                        <span className="text-mono opacity-20 vertical-text transform -rotate-180 origin-center">Established 25</span>
+                    </div>
+                    <div className="md:col-span-5">
+                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight">
+                            A creative practice operating at the intersection of branding, digital experiences, and culture.
                         </h2>
                     </div>
-                    <ServiceAccordion />
+                    <div className="md:col-span-6 space-y-12 text-sm md:text-lg leading-relaxed opacity-60 max-w-xl">
+                        <p>
+                            Based in Hyderabad, India, IMG&apos;folio works with visionary brands through a rigorous Swiss design lens. We believe that clarity is the ultimate luxury in a saturated digital landscape.
+                        </p>
+                        <p>
+                            Our method is rooted in mathematical grids and typographic systems, ensuring that every visual artifact we produce is as functional as it is aesthetic.
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            {/* 3. METHODOLOGY */}
-            <ProcessSteps />
-
-            {/* 4. CLIENTS */}
-            <ClientLogos />
-
-            {/* 5. AWARDS / RECOGNITION (Simple Text List) */}
-            <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div>
-                        <h2 className="text-4xl font-bold tracking-tight mb-8">Recognition</h2>
+            {/* 2. CAPABILITIES — MODULAR GRID */}
+            <section className="py-32 px-6 md:px-12 max-w-[100rem] mx-auto bg-accent/30 border-b border-foreground/10">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    <div className="md:col-span-4">
+                        <span className="text-mono opacity-40 block mb-6">Expertise</span>
+                        <h3 className="text-5xl font-black uppercase tracking-tighter">Capabilities</h3>
                     </div>
-                    <div className="space-y-6">
+                    <div className="md:col-span-8">
+                        <ServiceAccordion />
+                    </div>
+                </div>
+            </section>
+
+            {/* 3. CINEMATIC PROCESS — THE SYSTEM */}
+            <section className="bg-accent/20 py-40 border-b border-foreground/10">
+                <div className="px-6 md:px-12 max-w-[100rem] mx-auto">
+                    <span className="text-mono opacity-40 block mb-12">Execution</span>
+                    <ProcessSteps />
+                </div>
+            </section>
+
+            {/* 4. RECOGNITION — LIST INDEX */}
+            <section className="py-40 px-6 md:px-12 max-w-[100rem] mx-auto border-b border-foreground/10">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    <div className="md:col-span-4">
+                        <h2 className="text-6xl font-black uppercase tracking-tighter leading-[0.8] mb-12">Validation.</h2>
+                    </div>
+                    <div className="md:col-span-8 flex flex-col">
                         {[
                             { year: '2024', award: 'Site of the Day', org: 'Awwwards' },
                             { year: '2024', award: 'Honorable Mention', org: 'Clio Awards' },
                             { year: '2023', award: 'Best UI/UX', org: 'Behance' },
                             { year: '2023', award: 'Mobile Excellence', org: 'Google Design' },
                         ].map((item, i) => (
-                            <div key={i} className="flex justify-between items-baseline border-b border-gray-100 pb-4 hover:pl-4 transition-all duration-300 cursor-default">
-                                <span className="text-xl font-medium">{item.award}</span>
-                                <div className="flex gap-4 text-sm text-gray-500 font-mono uppercase">
-                                    <span>{item.org}</span>
+                            <div key={i} className="group flex justify-between items-center border-b border-foreground/10 py-10 hover:bg-foreground hover:text-background px-4 transition-all duration-500 cursor-default">
+                                <span className="text-2xl md:text-3xl font-black uppercase tracking-tighter group-hover:italic transition-all">{item.award}</span>
+                                <div className="flex gap-8 text-[10px] text-mono group-hover:opacity-100 transition-opacity">
+                                    <span className="opacity-40">{item.org}</span>
                                     <span>{item.year}</span>
                                 </div>
                             </div>
@@ -88,32 +101,26 @@ export default function InfoPage() {
                 </div>
             </section>
 
-            {/* 6. FOOTER */}
-            <footer className="relative bg-black text-white pt-32 pb-12 px-4 md:px-6 rounded-t-[3rem] -mt-10 z-10">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end min-h-[40vh]">
-                    <div className="mb-12 md:mb-0">
-                        <DraggableSticker className="-top-20 left-0">
-                            <div className="bg-white text-black font-mono text-xs px-3 py-1 -rotate-3 uppercase tracking-widest border border-black shadow-lg">
-                                Say Hello
-                            </div>
-                        </DraggableSticker>
-                        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gray-500 mb-6">
-                            Have an idea?
-                        </h2>
-                        <a href="mailto:hello@img.folio" className="text-6xl md:text-[8vw] font-bold tracking-tighter leading-none hover:text-gray-400 transition-colors">
-                            LET&apos;S TALK
-                        </a>
+            {/* 5. FOOTER — THE LAST IMPRESSION */}
+            <footer className="pt-32 pb-12 px-6 md:px-12 max-w-[100rem] mx-auto">
+                <div className="mb-32">
+                    <h2 className="text-[12vw] font-black tracking-tighter leading-none uppercase mb-12">
+                        Get In Touch.
+                    </h2>
+                    <a href="mailto:hello@img.folio" className="text-4xl md:text-6xl font-bold underline underline-offset-[1.5rem] hover:opacity-50 transition-opacity">
+                        hello@img.folio ↗
+                    </a>
+                </div>
+
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 pt-12 border-t border-foreground/5">
+                    <div className="flex gap-12">
+                        {['Instagram', 'Twitter', 'LinkedIn'].map((s) => (
+                            <a key={s} href="#" className="text-mono opacity-40 hover:opacity-100 transition-opacity">{s}</a>
+                        ))}
                     </div>
-                    <div className="flex flex-col gap-6 text-right">
-                        <div className="flex gap-6 justify-end">
-                            {['Instagram', 'Twitter', 'LinkedIn'].map((s) => (
-                                <a key={s} href="#" className="font-mono text-xs uppercase tracking-widest hover:underline hover:text-gray-300">{s}</a>
-                            ))}
-                        </div>
-                        <div className="flex flex-col text-gray-500 font-mono text-[10px] uppercase tracking-widest">
-                            <span>© 2025 IMG&apos;folio</span>
-                            <span>Hyderabad, India</span>
-                        </div>
+                    <div className="flex flex-col items-end text-mono opacity-20 text-[10px]">
+                        <span>© 2025 IMG&apos;folio Studio</span>
+                        <span>Visual Archive 24/25</span>
                     </div>
                 </div>
             </footer>

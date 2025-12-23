@@ -20,7 +20,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-white text-black cursor-none">
+      <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+          (function() {
+            try {
+              const theme = localStorage.getItem('theme') || 'light';
+              document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+          })();
+        ` }} />
+      </head>
+      <body className="antialiased bg-background text-foreground transition-colors duration-500">
         <Preloader />
         <ProgressBar />
         <GrainOverlay />
