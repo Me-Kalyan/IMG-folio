@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   keywords: ['Design', 'Photography', 'Swiss Style', 'Minimalism', 'Creative Development', 'Visual Identity'],
   authors: [{ name: 'IMG&apos;folio Studio' }],
   creator: 'IMG&apos;folio',
-  metadataBase: new URL('https://imgfolio.studio'),
+  metadataBase: new URL('https://imgfolio-app.vercel.app'), // Use current deployment URL for better previews
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: 'Independent design practice focusing on high-end visual storytelling and creative technology.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: "IMG'FOLIO",
@@ -39,17 +39,15 @@ export const metadata: Metadata = {
     title: "IMG'FOLIO | Visual Archive",
     description: 'Independent design practice focusing on high-end visual storytelling and creative technology.',
     creator: '@imgfolio',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.png'],
   },
   manifest: '/site.webmanifest',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-master.png', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/icon-master.png', sizes: '180x180', type: 'image/png' },
     ],
   },
 };
