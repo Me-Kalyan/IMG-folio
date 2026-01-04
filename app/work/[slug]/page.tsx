@@ -30,7 +30,7 @@ interface ProjectData {
 
 async function getProject(slug: string) {
     const query = `*[_type == "project" && slug.current == $slug][0] {
-    title, client, year, description, coverImage, "images": galleryImages
+    title, client, year, description, coverImage, "images": gallery
   }`;
     return client.fetch(query, { slug });
 }
