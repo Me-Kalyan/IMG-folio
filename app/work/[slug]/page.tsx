@@ -96,11 +96,14 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* 2. PHOTOGRAPHIC GRID */}
+            {/* 2. MODERN GALLERY */}
             <section className="py-20 px-6 md:px-12 max-w-[100rem] mx-auto">
                 {/* Hero Cover */}
-                <div
-                    className="cursor-zoom-in relative aspect-[21/9] bg-accent mb-20 overflow-hidden"
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+                    className="cursor-zoom-in relative aspect-[21/9] bg-accent mb-16 overflow-hidden rounded-2xl shadow-2xl"
                     onClick={() => setLightboxImage(project.coverImage || null)}
                 >
                     {project.coverImage && (
@@ -108,28 +111,40 @@ export default function ProjectPage() {
                             src={urlFor(project.coverImage).width(2000).url()}
                             alt={project.title}
                             fill
-                            className="object-cover"
+                            className="object-cover hover:scale-105 transition-transform duration-700"
                             priority
                         />
                     )}
-                </div>
+                </motion.div>
 
-                {/* Grid observations */}
-                <div className="columns-1 md:columns-2 gap-8 space-y-8">
+                {/* Gallery Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {project.images?.map((img, i) => (
-                        <figure
+                        <motion.figure
                             key={i}
-                            className="break-inside-avoid cursor-zoom-in relative bg-accent border border-foreground/5 hover:border-foreground/20 transition-colors"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.6,
+                                delay: i * 0.1,
+                                ease: [0.23, 1, 0.32, 1]
+                            }}
+                            className="group relative cursor-zoom-in overflow-hidden rounded-xl bg-accent aspect-[4/5]"
                             onClick={() => setLightboxImage(img)}
                         >
                             <Image
-                                src={urlFor(img).width(1200).url()}
-                                alt={`${project.title} study ${i + 1}`}
-                                width={1200}
-                                height={1600}
-                                className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700"
+                                src={urlFor(img).width(800).url()}
+                                alt={`${project.title} - ${i + 1}`}
+                                fill
+                                className="object-cover transition-all duration-500 group-hover:scale-110"
                             />
-                        </figure>
+                            {/* Hover Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            {/* Image Number */}
+                            <span className="absolute bottom-4 left-4 text-white/80 text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                {String(i + 1).padStart(2, '0')}
+                            </span>
+                        </motion.figure>
                     ))}
                 </div>
             </section>
