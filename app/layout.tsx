@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   keywords: ['Design', 'Photography', 'Swiss Style', 'Minimalism', 'Creative Development', 'Visual Identity'],
   authors: [{ name: 'IMG&apos;folio Studio' }],
   creator: 'IMG&apos;folio',
-  metadataBase: new URL('https://imgfolio-app.vercel.app'), // Use current deployment URL for better previews
+  metadataBase: new URL('https://www.imgfolio.site'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://imgfolio.studio',
+    url: 'https://www.imgfolio.site',
     siteName: "IMG'FOLIO",
     title: "IMG'FOLIO | Visual Archive",
     description: 'Independent design practice focusing on high-end visual storytelling and creative technology.',
